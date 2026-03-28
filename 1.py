@@ -86,3 +86,16 @@ def fabonacci(num):
 n = int(input("enter the number: "))
 n = fabonacci(n)
 print(n)
+
+
+# write a function to print the reverse of a number using recursion\\
+def reverse(num , rev = 0):
+    
+    if num== 0:
+        return rev
+    else:
+        return reverse(num // 10, rev * 10 + num % 10)
+
+n = int(input("enter the number: "))
+n = reverse(n)
+print(n)
