@@ -1,35 +1,25 @@
-# write a recursive function to print all the subset of an array using backtracking\\
+# write a code to find the subsets of an array using backtracking\\
 
-def subsets(arr, index=0, current=[]):
-    # base case
-    if index == len(arr):
-        print(current)
-        return
-    
-    # include element
-    subsets(arr, index + 1, current + [arr[index]])
-    
-    # exclude element
-    subsets(arr, index + 1, current)
+def subset(arr):
+    def solve(index,current):
+        if index == len(arr):
+            print(current)
+            return
+        
 
-
-arr = [1, 2, 3]
-subsets(arr)
+        # include the item\\
+        current.append(arr[index])
+        solve(index+1,current)
 
 
-# another way to do it\\
+        current.pop()
 
-def subset(arr,index = 0,current = []):
-    if index == len(arr):
-        print(current)
-        return
-    # this will include the number\
 
-    subset(arr,index+1,current+ [arr[index]])
+        # skip the item\\
 
-    # this will exclude the number\\
+        solve(index+1,current)
 
-    subset(arr,index+1,current)
+    solve(0,[])
 
-array = [1,2,3]
-subset(array)
+
+subset([1,2,3])
