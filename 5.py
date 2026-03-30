@@ -42,3 +42,23 @@ def permutation_string(s):
     solve([])
 
 permutation_string("abc")
+
+
+# write a function to print all the subsequence of a string using backtracking\\
+
+def subsequence_string(s):
+    def solve(current, index):
+        if index == len(s):
+            print(current)
+            return
+        
+        # include character
+        solve(current + s[index], index + 1)
+        
+        # exclude character
+        solve(current, index + 1)
+
+    solve("", 0)   # correct start
+
+
+subsequence_string("abc")
