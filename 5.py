@@ -62,3 +62,30 @@ def subsequence_string(s):
 
 
 subsequence_string("abc")
+
+# write a function to print all the subset of an array using backtracking\\
+
+def subset_array(arr):
+    def solve(current,index):
+        if index == len (arr):
+            print(current)
+            return
+        
+        # include element \\
+
+        solve(current+[arr[index]],index+1)
+
+
+    
+
+        
+
+        #. exclude element\\
+
+        solve(current,index+1)
+
+    solve([],0)
+
+
+
+subset_array([1,2,3])
