@@ -51,3 +51,36 @@ def backtrack(arr,target):
     solve([],0,0)
 
 backtrack([2,3,6,7],7)
+
+
+# combination sum , where element can not be reused and handles the duplicate\\
+
+def backtrack(arr , target):
+    arr.sort()
+    def solve(current, index, total):
+        if total == target:
+            print(current)
+            return
+        if total >target:
+            return
+        
+        for i in range(index, len(arr)):
+              if i > index and arr[i] ==arr[i-1]:
+                  continue
+              
+              current.append(arr[i])
+
+
+
+              solve(current, index+1 , total+arr[i])
+
+
+              current.pop()
+
+
+    solve([],0,0)
+
+backtrack([10,1,2,7,6,1,5],8)
+            
+
+        
